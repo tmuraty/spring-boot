@@ -2,9 +2,10 @@ spring-boot + admin-lte 脚手架
 ====================
 ## 前端
 前端采用的是 admin-LTE 模版
+![Screenshot admin-LTE](/images/navigation.png)
 
 核心组件
-* [jquery](http://jquery.com/) 
+* [jquery](http://jquery.com/)
 *不用说,都懂~*
 * [bootstrap](http://v3.bootcss.com/)
 *产自Twitter，是目前很受欢迎的前端框架*
@@ -16,14 +17,18 @@ spring-boot + admin-lte 脚手架
 **国内**
 * [bootstrap-table](http://bootstrap-table.wenzhixin.net.cn/zh-cn/)
 *用来做分页处理*
+![Screenshot bootstrap-table](/images/bootstrap-table.png)
 * [zTree](http://www.treejs.cn/v3/main.php#_zTreeInfo)
 *树插件,权限,架构等使用比较多*
+![Screenshot zTree](/images/zTree.png)
 * [layer](http://layer.layui.com/)
 *防止alert将线程锁死*
+![Screenshot layer](/images/layer.png)
 
 **国外**
 * [Chart.js](http://www.chartjs.org/docs/)
 *一款做图表的插件*
+![Screenshot Chart.js](/images/chart.js.png)
 * [bootstrap-datepicker](http://bootstrap-datepicker.readthedocs.io/en/latest/)
 *日期控件*
 * [bootstrap-datetimepicker](http://www.bootcss.com/p/bootstrap-datetimepicker/)
@@ -36,17 +41,20 @@ spring-boot + admin-lte 脚手架
 *快速响应*
 * [bootstrap-file-input](http://plugins.krajee.com/file-input)
 *上传插件*
+![Screenshot file-input](/images/file-input.png)
 * [iCheck](http://icheck.fronteed.com/)
 *美化radio checkbox样式*
 * [pace](http://github.hubspot.com/pace/)
 *页面加载*
 * [select2](https://select2.github.io/)
 *select下拉选项控件*
+![Screenshot select2](/images/select2.png)
 * [validator](http://formvalidation.io/)
 *表单验证控件*
+![Screenshot validator](/images/validator.png)
 
 ## 截图
-![Screenshot application list](/images/logo.jpg?raw=true)
+![Screenshot Chart.js](/images/logo.jpg?raw=true)
 *Dashboard with desktop notifications*
 
 ## 配置
