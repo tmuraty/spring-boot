@@ -15,7 +15,6 @@ spring-boot + admin-lte 脚手架
 * fontawesome , ionicons 字体,图标
 * respond , html5shiv ie兼容
 
-
 采用前端插件包含 :
 
 **国内**
@@ -51,38 +50,38 @@ spring-boot + admin-lte 脚手架
 *表单验证控件*
 
 ## 截图
-![Screenshot admin-LTE](/images/navigation.png)
 *布局*
+![Screenshot admin-LTE](/images/navigation.png)
 
-![Screenshot bootstrap-table](/images/bootstrap-table.png)
 *表格分页和编辑(bootstrap-table+x-editable)*
+![Screenshot bootstrap-table](/images/bootstrap-table.png)
 
-![Screenshot zTree](/images/zTree.png)
 *树*
+![Screenshot zTree](/images/zTree.png)
 
-![Screenshot layer](/images/layer.png)
 *主要使用 layer.msg 防止alert线程锁死*
+![Screenshot layer](/images/layer.png)
 
-![Screenshot Chart.js](/images/chart.js.png)
 *表格分析等*
+![Screenshot Chart.js](/images/chart.js.png)
 
-![Screenshot bootstrap-datepicker](/images/bootstrap-datepicker.png)
 *时间控件*
+![Screenshot bootstrap-datepicker](/images/bootstrap-datepicker.png)
 
-![Screenshot file-input](/images/file-input.png)
 *上传插件*
+![Screenshot file-input](/images/file-input.png)
 
-![Screenshot iCheck](/images/iCheck.png)
 *radio checkbox美化*
+![Screenshot iCheck](/images/iCheck.png)
 
-![Screenshot pace](/images/pace.png)
 *页面进入是的加载条*
+![Screenshot pace](/images/pace.png)
 
-![Screenshot select2](/images/select2.png)
 *下拉框控件*
+![Screenshot select2](/images/select2.png)
 
-![Screenshot validator](/images/validator.png)
 *表单验证*
+![Screenshot validator](/images/validator.png)
 
 ## 配置
 * xml:
