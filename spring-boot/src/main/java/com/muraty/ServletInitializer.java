@@ -6,6 +6,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		System.out.print("init");
 		return application.sources(Application.class);
 	}
 
