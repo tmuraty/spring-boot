@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="bootstrapTable1">中间内容</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../../static/bootstrapTable/bootstrap-table.min.css"/>
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                General UI
+                <small>Preview of UI elements</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">UI</a></li>
+                <li class="active">General</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <h2 class="page-header">Custom Tabs</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Tab 3</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div th:fragment="tt3">
+                                    Lorem Ipsum只是虚拟文字的印刷和排版行业。
+                                    Lorem Ipsum一直是行业标准的虚拟文字自从1500年代,
+                                    当一个未知的打印机类型的厨房,炒标本书。
+                                    它不仅度过了五个世纪,而且进入电子排版,
+                                    剩下的基本上保持不变。它在1960年代很流行的释放
+                                    Letraset表包含Lorem Ipsum段落,最近与桌面出版软件
+                                    像阿尔杜斯专业排版软件包括Lorem Ipsum的版本。
+                                    <!--/* 隐藏域 用于传递 后台数据 */-->
+                                    <div class="hidden">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../../static/local/js/local.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<!-- 替换母页面中的js -->
+<script th:fragment="js">
+    $(function () {
+        console.info(3);
+    });
+
+</script>
+</body>
+</html>

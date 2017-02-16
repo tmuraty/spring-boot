@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>中间内容</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../../static/bootstrapTable/bootstrap-table.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                General UI
+                <small>Preview of UI elements</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">UI</a></li>
+                <li class="active">General</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <h2 class="page-header">Custom Tabs</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div th:fragment="tt1">
+                                    <b>如何使用:</b>
+                                    <p>
+                                        就像最初的引导标签除了您应该使用自定义包装<code>.nav-tabs-custom</code>实现这种风格.
+                                    </p>
+                                    美好的宁静已经占有我的整个灵魂,像这些甜美的春天的早晨,我喜欢用我的整个心。
+                                    我独自一人,感觉存在的魅力在这个位置,这是出于灵魂像我一样的幸福。
+                                    我很高兴,我亲爱的朋友,所以仅仅专注于精致的宁静的存在,我忽视我的才能。
+                                    我应该不能画一笔在当下,然而我觉得我从来没有比现在更大的艺术家。
+                                    <!--/* 隐藏域 用于传递 后台数据 */-->
+                                    <div class="hidden">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../../static/local/js/local.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<!-- 替换母页面中的js -->
+<script th:fragment="js">
+    $(function () {
+        console.info(1);
+    });
+
+</script>
+</body>
+</html>

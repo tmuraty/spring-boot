@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="select2_1">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/select2/select2.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>bootstrapSelect2
+                <small>Demo1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">bootstrapSelect2</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <h3 class="box-title">select2控件</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>模拟数据(spring mvc 封装)</label>
+                                <select id="s1" class="form-control select2" style="width: 100%;" title=""></select>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>数据库数据1(取出所有select数据)</label>
+                                <select id="s2" class="form-control select2" style="width: 100%;" title=""></select>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>数据库数据2(仅取出AREA数据)</label>
+                                <select id="s3" class="form-control select2" style="width: 100%;" title=""></select>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>数据库数据3(取出AREA的拼音首字母查询数据) hns (湖南省)</label>
+                                <select id="s4" class="form-control select2" style="width: 100%;" title=""></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+        <input id="s1_url" type="text" title="select2数据"
+               value="../../jsondata/select/s1.json"
+               th:value="@{/select/data/s1}"/>
+        <input id="db1_url" type="text" title="select2数据"
+               value="../../jsondata/select/s1.json"
+               th:value="@{/select/data/db1}"/>
+        <input id="db2_url" type="text" title="select2数据"
+               value="../../jsondata/select/s1.json"
+               th:value="@{/select/data/db2}"/>
+        <input id="db3_url" type="text" title="select2数据"
+               value="../../jsondata/select/s1.json"
+               th:value="@{/select/data/db3}"/>
+    </div>
+    <!--/*/ </th:block> /*/-->
+
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/layer/layer.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/select2/select2.full.min.js"></script>
+<script src="../../../static/select2/i18n/zh-CN.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+
+        var s1_url = $('#s1_url').val();
+        var db1_url = $('#db1_url').val();
+        var db2_url = $('#db2_url').val();
+        var db3_url = $('#db3_url').val();
+
+        $('#s1').select2({
+            minimumInputLength: 0,
+            language: 'zh-CN',
+            multiple: true,
+            autoClear: true,
+            ajax: {
+                url: s1_url,
+                dataType: 'JSON',
+                delay: 250,
+                cache: true,
+                processResults: function (data, params) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+        $('#s2').select2({
+            minimumInputLength: 0,
+            language: 'zh-CN',
+            multiple: true,
+            autoClear: true,
+            ajax: {
+                url: db1_url,
+                dataType: 'JSON',
+                delay: 250,
+                cache: true,
+                processResults: function (data, params) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+        $('#s3').select2({
+            minimumInputLength: 0,
+            language: 'zh-CN',
+            multiple: true,
+            autoClear: true,
+            ajax: {
+                url: db2_url,
+                dataType: 'JSON',
+                delay: 250,
+                cache: true,
+                processResults: function (data, params) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+        $('#s4').select2({
+            minimumInputLength: 1,
+            language: 'zh-CN',
+            multiple: true,
+            autoClear: true,
+            ajax: {
+                url: db3_url,
+                dataType: 'JSON',
+                delay: 250,
+                cache: true,
+                processResults: function (data, params) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+    });
+
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

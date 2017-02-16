@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="bootstrapTable2">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/select2/select2.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/bootstrapTable/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../../static/editable/css/bootstrap-editable.css">
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+
+        <section class="content-header">
+            <h1>bootstrapTable
+                <small>Demo2</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">bootstrapTable</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header"><h3 class="box-title">数据修改</h3></div>
+                        <div class="box-body">
+                            <div id="base_code_toolbar" class="btn-group">
+                                <button id="base_code_btn_add" type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加基础数据
+                                </button>
+                            </div>
+                            <table id="base_code_table" data-mobile-responsive="true"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+        <input id="t2_url" type="text" title="table请求的json数据"
+               value="../../jsondata/bootstrapTable/t1.json"
+               th:value="@{/table/data/t1}"/>
+        <input id="t2_edit_url" type="text" title="更新行url"
+               value="../../jsondata/bootstrapTable/t1.json"
+               th:value="@{/table/data/t1}"/>
+        <input id="s1_url" type="text" title="select2数据"
+               value="../../jsondata/select/s1.json"
+               th:value="@{/select/data/s1}"/>
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../static/bootstrapTable/extensions/bootstrap-table-editable.js"></script>
+<script src="../../../static/editable/js/bootstrap-editable.min.js"></script>
+<script src="../../../static/moment/moment.min.js"></script>
+<script src="../../../static/moment/zh-cn.js"></script>
+<script src="../../../static/select2/select2.full.min.js"></script>
+<script src="../../../static/select2/i18n/zh-CN.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/layer/layer.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+
+        /*** 初始化表单数据*/
+        var t2_url = $('#t2_url').val();
+        var s1_url = $('#s1_url').val();
+        var t2_edit_url = $('#t2_edit_url').val();
+
+        var $bootstrapTable = $('#base_code_table').bootstrapTable({
+            url: t2_url,
+            uniqueId: 'id',
+            toolbar: '#base_code_toolbar',
+            search: true,
+            pagination: true,
+            singleSelect: true,
+            showRefresh: true,
+            showColumns: true,
+            pageSize: pageSize,
+            pageList: pageList,
+            dataType: dataType,
+            sidePagination: sidePagination,
+            buttonsAlign: buttonsAlign,
+            toolbarAlign: toolbarAlign,
+            columns: [
+                {
+                    title: '整数',
+                    field: 'data1',
+                    align: 'center',
+                    editable: {
+                        type: 'number',
+                        title: '用户名',
+                        validate: function (v) {
+                            if(v.length<1 || v.length>3) return '请输入1-9999的数字'
+                        }
+                    }
+                },
+                {
+                    title: '浮点数',
+                    field: 'data2',
+                    align: 'center',
+                    editable: {
+                        type: 'number',
+                        title: '用户名',
+                        validate: function (v) {
+                            if(v.length<1 || v.length>3) return '请输入1-9999的数字'
+                        }
+                    }
+                },
+                {
+                    title: '字符串',
+                    field: 'data3',
+                    align: 'center',
+                    editable: {
+                        type: 'text',
+                        title: '用户名',
+                        validate: function (v) {
+                            if (!v) return '字符串';
+                        }
+                    }
+                },
+                {
+                    title: "布尔值",
+                    field: "data4",
+                    align: 'center'
+                },
+                {
+                    title: "时间1",
+                    field: "data5",
+                    align: 'center'
+                },
+                {
+                    title: '时间2',
+                    field: 'data6',
+                    align: 'center',
+                    editable: {
+                        title: '时间',
+                        type: 'combodate',
+                        template: 'YYYY MMM D',
+                        format: 'YYYY-MM-DD',
+                        combodate: {
+                            minYear: 2000,
+                            maxYear: 2099
+                        }
+                    }
+                }
+            ],
+            onEditableSave: function (field, row, oldValue, $el) {
+                $.ajax({
+                    type: "post",
+                    url: t2_edit_url,
+                    data: row,
+                    dataType: 'JSON',
+                    success: function (data, status) {
+                        if (status == "success") {
+                            layer.msg('提交数据成功');
+                            console.info(data);
+                        }
+                    },
+                    error: function () {
+                        layer.msg('编辑失败');
+                    },
+                    complete: function () {
+                        // 数据提交成功 刷新表单数据
+                        $bootstrapTable.bootstrapTable('refresh', {silent: true});
+                    }
+                });
+            }
+        });
+
+    });
+
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

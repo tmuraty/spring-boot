@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="bootstrapTable1">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/bootstrapTable/bootstrap-table.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+
+        <section class="content-header">
+            <h1>bootstrapTable
+                <small>Demo1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">bootstrapTable</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-danger">
+                        <div class="box-header"><h3 class="box-title">分页表格数据</h3></div>
+                        <div class="box-body">
+                            <table id="table_demo1" data-mobile-responsive="true"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+        <input id="t1_url" type="text" title="table请求的json数据"
+               value="../../jsondata/table/t1.json"
+               th:value="@{/table/data/t1}"/>
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+
+        var t1_url = $('#t1_url').val();
+
+        $('#table_demo1').bootstrapTable({
+            url: t1_url,                    // URL
+            method: 'POST',                 // GET
+            uniqueId: 'id',                 // 绑定ID
+            search: true,                   // 搜索框
+            pagination: true,               //
+            singleSelect: true,             //
+            showRefresh: true,              // 显示刷新按钮
+            showColumns: true,              // 选择显示的列
+            pageSize: pageSize,              // 当前分页值
+            pageList: pageList,              // 分页选页
+            dataType: dataType,              // JSON
+            sidePagination: sidePagination,  // 服务端请求
+            buttonsAlign: buttonsAlign,      // 刷新,显示列按钮位置
+            toolbarAlign: toolbarAlign,      // 搜索框位置
+            columns: [
+                {
+                    title: '整数',
+                    field: 'data1',
+                    align: 'center'
+                },
+                {
+                    title: '浮点数',
+                    field: 'data2',
+                    align: 'center'
+                },
+                {
+                    title: '字符',
+                    field: 'data3',
+                    align: 'center'
+                },
+                {
+                    title: '布尔',
+                    field: 'data4',
+                    align: 'center'
+                },
+                {
+                    title: '时间(DateTimeFormat)',
+                    field: 'data5',
+                    align: 'center'
+                },
+                {
+                    title: '时间(JsonFormat)',
+                    field: 'data6',
+                    align: 'center'
+                }
+            ]
+        });
+    });
+
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

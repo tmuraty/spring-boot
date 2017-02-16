@@ -1,0 +1,39 @@
+# 开发环境配置
+spring:
+  # 模版不缓存 开发热启动
+  thymeleaf:
+    cache: false
+  # 使用h2做为数据库 (开启数据库网页版本:访问地址 项目地址/db)
+  h2:
+    console:
+      enabled: true
+      path: /db
+  # 数据库配置
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:~/spring-boot;AUTO_SERVER=TRUE
+    name: spring-boot
+    username: root
+    password: 123456
+  # 开启jpa模式
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  # jpa 配置
+  jpa:
+    show-sql: true
+    database: h2
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        strategy: org.hibernate.cfg.DefaultNamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+logging:
+  # 日志级别 开发模式
+  level:
+    com:
+      muraty: debug

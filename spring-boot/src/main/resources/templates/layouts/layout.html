@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title th:text="admin-lte">布局</title>
+    <!--/* 页面编码 */-->
+    <meta charset="utf-8"/>
+    <!--/* 浏览器标识 */-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--/* 浏览器响应屏幕宽度 */-->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!--/* logo */-->
+    <link href="../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"
+          th:href="@{/local/img/logo.jpg}"/>
+    <!--/* Bootstrap */-->
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!--/* 字体 */-->
+    <link rel="stylesheet" href="../../static/fontawesome/css/font-awesome.min.css"
+          th:href="@{/fontawesome/css/font-awesome.min.css}"/>
+    <!--/* 图标 */-->
+    <link rel="stylesheet" href="../../static/ionicons/css/ionicons.min.css"
+          th:href="@{/ionicons/css/ionicons.min.css}"/>
+    <!--/* iCheck */-->
+    <link rel="stylesheet" href="../../static/iCheck/flat/blue.css"
+          th:href="@{/iCheck/flat/blue.css}"/>
+    <!--/* 时间控件 */-->
+    <link rel="stylesheet" href="../../static/datepicker/datepicker3.css"
+          th:href="@{/datepicker/datepicker3.css}"/>
+    <!--/* 日期控件 */-->
+    <link rel="stylesheet" href="../../static/datetimepicker/bootstrap-datetimepicker.min.css"
+          th:href="@{/datetimepicker/bootstrap-datetimepicker.min.css}"/>
+    <!--/* 文本编辑器 */-->
+    <link rel="stylesheet" href="../../static/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
+          th:href="@{/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}"/>
+    <!--/* editable */-->
+    <link rel="stylesheet" href="../../static/editable/css/bootstrap-editable.css"
+          th:href="@{/editable/css/bootstrap-editable.css}"/>
+    <!--/* bootstrapTable */-->
+    <link rel="stylesheet" href="../../static/bootstrapTable/bootstrap-table.min.css"
+          th:href="@{/bootstrapTable/bootstrap-table.min.css}"/>
+    <!--/* 表单验证 */-->
+    <link rel="stylesheet" href="../../static/validator/bootstrapValidator.min.css"
+          th:href="@{/validator/bootstrapValidator.min.css}"/>
+    <!--/* 文件上传下载 */-->
+    <link rel="stylesheet" href="../../static/fileinput/css/fileinput.min.css"
+          th:href="@{/fileinput/css/fileinput.min.css}"/>
+    <!--/* pace */-->
+    <link rel="stylesheet" href="../../static/pace/pace.min.css"
+          th:href="@{/pace/pace.min.css}"/>
+    <!--/* select控件 */-->
+    <link rel="stylesheet" href="../../static/select2/select2.min.css"
+          th:href="@{/select2/select2.min.css}"/>
+    <!--/* zTree 控件 */-->
+    <link rel="stylesheet" href="../../static/ztree/css/metroStyle/metroStyle.css"
+          th:href="@{/ztree/css/metroStyle/metroStyle.css}"/>
+    <!--/* admin-lte 主题 */-->
+    <link rel="stylesheet" href="../../static/admin-lte/css/AdminLTE.min.css"
+          th:href="@{/admin-lte/css/AdminLTE.min.css}"/>
+    <!--/* admin-lte 皮肤 */-->
+    <link rel="stylesheet" href="../../static/admin-lte/css/skins/skin-blue-light.min.css"
+          th:href="@{/admin-lte/css/skins/skin-blue-light.min.css}"/>
+    <!--/* 浏览器兼容 */-->
+    <!--[if lt IE 9]>
+    <script src="../../static/html5shiv/html5.min.js"
+            th:src="@{/html5shiv/html5.min.js}"></script>
+    <script src="../../static/respond/respond.min.js"
+            th:src="@{/respond/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <!-- Header -->
+    <div th:replace="layouts/header::header">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <span class="logo-mini">BJ</span>
+                <span class="logo-lg">布局效果</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">您有1条消息(布局)</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="../../static/admin-lte/img/user2-160x160.jpg"
+                                                         class="img-circle" alt="User Image"
+                                                         th:src="@{/admin-lte/img/user2-160x160.jpg}"/>
+                                                </div>
+                                                <h4>
+                                                    技术支持(布局)
+                                                    <small><i class="fa fa-clock-o"></i> 5 分钟前</small>
+                                                </h4>
+                                                <p>为毛你不搞个好点的主题(布局)</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">查看所有消息(布局)</a></li>
+                            </ul>
+                        </li>
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">2</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">你有2条通知(布局)</li>
+                                <li>
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 今天有5个小伙子加入咱团队(布局)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-yellow"></i>
+                                                很长的描述可能导致排版不是很美观哟! 比如你就看不到这段文字了 ^o^
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">显示所有(布局)</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-danger">3</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">您有3条待办(布局)</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <h3>
+                                                    升级下按钮控件(布局)
+                                                    <small class="pull-right">20%</small>
+                                                </h3>
+                                                <div class="progress xs">
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                         role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                         aria-valuemax="100">
+                                                        <span class="sr-only">20% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">查看所有的待办(布局)</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="../../static/local/img/muraty.jpg" class="user-image" alt="User Image"
+                                     th:src="@{/local/img/muraty.jpg}"/>
+                                <span class="hidden-xs">姓名(布局)</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="../../static/local/img/muraty.jpg" class="img-circle" alt="User Image"
+                                         th:src="@{/local/img/muraty.jpg}"/>
+                                    <p>姓名 - 职务(布局)<small>入职时间(布局)</small></p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center"><a href="#">赞</a></div>
+                                        <div class="col-xs-4 text-center"><a href="#">业绩</a></div>
+                                        <div class="col-xs-4 text-center"><a href="#">好友</a></div>
+                                    </div>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">设置(布局)</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">登出(布局)</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <!-- left -->
+    <div th:replace="layouts/left::left">
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../../static/local/img/muraty.jpg" class="img-circle" alt="User Image"
+                             th:src="@{/local/img/muraty.jpg}"/>
+                    </div>
+                    <div class="pull-left info">
+                        <p>姓名(布局)</p>
+                        <i class="fa fa-circle text-success"></i> 在线(布局)
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="搜索(布局)...">
+                        <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                            class="fa fa-search"></i>
+                    </button>
+                  </span>
+                    </div>
+                </form>
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">主导航(布局)</li>
+                    <li class="active treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>左边一</span>
+                            <i class="fa fa-angle-down pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> 左边一(1)</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 左边一(2)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>左边二</span></a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+    <!-- main content -->
+    <div layout:fragment="content">
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner"><h3>门户_</h3>
+                                <p>门户跳转</p></div>
+                            <div class="icon"><i class="fa fa-bars"></i></div>
+                            <a href="#" class="small-box-footer">进入...<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="small-box bg-green">
+                            <div class="inner"><h3>统计_</h3>
+                                <p>报表详细统计</p></div>
+                            <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                            <a href="#" class="small-box-footer">更多信息...<i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- footer -->
+    <div th:replace="layouts/footer::footer">
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs"><b>Version</b> 1.0</div>
+            <strong>Copyright &copy; 2016-2017 <a href="http://blog.csdn.net/muraty">(布局)</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+</div>
+<!--/* jQuery */-->
+<script src="../../static/jQuery/jquery.min.js"
+        th:src="@{/jQuery/jquery.min.js}"></script>
+<!--/* jQuery UI */-->
+<script src="../../static/jQueryUI/jquery-ui.min.js"
+        th:src="@{/jQueryUI/jquery-ui.min.js}"></script>
+<!--/* Bootstrap */-->
+<script src="../../static/bootstrap/js/bootstrap.min.js"
+        th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<!--/* layer */-->
+<script src="../../static/layer/layer.js"
+        th:src="@{/layer/layer.js}"></script>
+<!--/* 表单验证 */-->
+<script src="../../static/validator/bootstrapValidator.min.js"
+        th:src="@{/validator/bootstrapValidator.min.js}"></script>
+<!--/* 日期控件依赖 */-->
+<script src="../../static/moment/moment.min.js"
+        th:src="@{/moment/moment.min.js}"></script>
+<!--/* 日期控件依赖国际化 */-->
+<script src="../../static/moment/zh-cn.js"
+        th:src="@{/moment/zh-cn.js}"></script>
+<!--/* 日期控件 */-->
+<script src="../../static/datetimepicker/bootstrap-datetimepicker.min.js"
+        th:src="@{/datetimepicker/bootstrap-datetimepicker.min.js}"></script>
+<!--/* 日期控件国际化 */-->
+<script src="../../static/datetimepicker/bootstrap-datetimepicker.zh-CN.js"
+        th:src="@{/datetimepicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<!--/* 时间控件 */-->
+<script src="../../static/datepicker/bootstrap-datepicker.js"
+        th:src="@{/datepicker/bootstrap-datepicker.js}"></script>
+<!--/* Bootstrap WYSIHTML5 */-->
+<script src="../../static/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"
+        th:src="@{/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+<!--/* 统计报表(条形图,柱状图) */-->
+<script src="../../static/chartjs/Chart.js"
+        th:src="@{/chartjs/Chart.js}"></script>
+<!--/* FastClick */-->
+<script src="../../static/fastclick/fastclick.js"
+        th:src="@{/fastclick/fastclick.js}"></script>
+<!--/* editable */-->
+<script src="../../static/editable/js/bootstrap-editable.js"
+        th:src="@{/editable/js/bootstrap-editable.js}"></script>
+<!--/* 表格显示控件 */-->
+<script src="../../static/bootstrapTable/bootstrap-table.min.js"
+        th:src="@{/bootstrapTable/bootstrap-table.min.js}"></script>
+<!--/* 表格显示手机端适配 */-->
+<script src="../../static/bootstrapTable/bootstrap-table-mobile.min.js"
+        th:src="@{/bootstrapTable/bootstrap-table-mobile.min.js}"></script>
+<!--/* 表格显示国际化 */-->
+<script src="../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"
+        th:src="@{/bootstrapTable/bootstrap-table-zh-CN.min.js}"></script>
+<!--/* editable 和 bootstrapTable 整合 */-->
+<script src="../../static/bootstrapTable/extensions/bootstrap-table-editable.min.js"
+        th:src="@{/bootstrapTable/extensions/bootstrap-table-editable.min.js}"></script>
+<!--/* pace */-->
+<script src="../../static/pace/pace.min.js"
+        th:src="@{/pace/pace.min.js}"></script>
+<!--/* 应用个人js */-->
+<script src="../../static/local/js/local.js"
+        th:src="@{/local/js/local.js}"></script>
+<!--/* AdminLTE App */-->
+<script src="../../static/admin-lte/js/app.min.js"
+        th:src="@{/admin-lte/js/app.min.js}"></script>
+<!--/* 文件上传下载 */-->
+<script src="../../static/fileinput/js/fileinput.min.js"
+        th:src="@{/fileinput/js/fileinput.min.js}"></script>
+<!--/* 文件上传下载国际化 */-->
+<script src="../../static/fileinput/js/locales/zh.js"
+        th:src="@{/fileinput/js/locales/zh.js}"></script>
+<!--/* select 控件 */-->
+<script src="../../static/select2/select2.full.min.js"
+        th:src="@{/select2/select2.full.min.js}"></script>
+<!--/* select 控件国际化 */-->
+<script src="../../static/select2/i18n/zh-CN.js"
+        th:src="@{/select2/i18n/zh-CN.js}"></script>
+<!--/* zTree 树控件 */-->
+<script src="../../static/ztree/js/jquery.ztree.all.min.js"
+        th:src="@{/ztree/js/jquery.ztree.all.min.js}"></script>
+<!--/* 引入页面js */-->
+<script layout:fragment="js"></script>
+</body>
+</html>

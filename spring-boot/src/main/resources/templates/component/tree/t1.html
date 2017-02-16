@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="tree1">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/ztree/css/metroStyle/metroStyle.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>ztree
+                <small>Demo1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">ztree</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <h3 class="box-title">select2控件</h3>
+                        </div>
+                        <div class="box-body">
+                            <ul id="deptTree" class="ztree"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+        <input id="t1_url" type="text" title="table请求的json数据"
+               value="../../jsondata/tree/t1.json"
+               th:value="@{/tree/data/t1}"/>
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/ztree/js/jquery.ztree.all.min.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+
+        var t1_url = $('#t1_url').val();
+
+        var setting = {
+            async: {
+                url: t1_url,
+                contentType: 'JSON',
+                type: 'GET',
+                enable: true,
+                autoParam: ["id"]
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            check: {
+                enable: true,
+                chkStyle: "checkbox",
+                chkboxType: {"Y": "s", "N": "ps"}
+            },
+            callback: {
+                onClick: onClick,
+                onCheck: onCheck
+            }
+        };
+
+        $.fn.zTree.init($('#deptTree'), setting);
+
+    });
+
+    function onClick(event, treeId, treeNode, clickFlag) {
+
+        console.info("onClick : "+treeNode.id);
+
+    }
+
+    function onCheck(e, treeId, treeNode) {
+        var nodes = $.fn.zTree.getZTreeObj('deptTree').getCheckedNodes(true);
+        var v = '';
+        for (var i = 0; i < nodes.length; i++) {
+            v += nodes[i].id + ',';
+        }
+        console.info("onCheck : "+v);
+
+    }
+
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

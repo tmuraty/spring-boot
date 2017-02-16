@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>注释</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"
+          th:href="@{/local/img/muraty.jpg}"/>
+</head>
+<body>
+<p>注释:</p>
+<p>
+    标准注释 :
+    <!-- 标准的html/xhtml注释 -->
+</p>
+<p>
+    引擎注释1(单行):
+    <!--/* 这些代码会被引擎解析时去掉 */-->
+</p>
+<p>
+    引擎注释2(多行):
+    <!--/*-->
+    不推荐
+    被注释1
+    被注释2
+    <!--*/-->
+</p>
+<p>
+    引擎注释3:
+    <!--/*/ 保留里面的内容 /*/-->
+</p>
+</body>
+</html>

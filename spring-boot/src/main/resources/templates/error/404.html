@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="404">404静态</title>
+    <!--/* 页面编码 */-->
+    <meta charset="utf-8"/>
+    <!--/* 浏览器标识 */-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--/* 浏览器响应屏幕宽度 */-->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!--/* logo */-->
+    <link href="../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"
+          th:href="@{/local/img/logo.jpg}"/>
+    <!--/* Bootstrap */-->
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+    <!--/* 字体 */-->
+    <link rel="stylesheet" href="../../static/fontawesome/css/font-awesome.min.css"
+          th:href="@{/fontawesome/css/font-awesome.min.css}"/>
+    <!--/* 图标 */-->
+    <link rel="stylesheet" href="../../static/ionicons/css/ionicons.min.css"
+          th:href="@{/ionicons/css/ionicons.min.css}"/>
+    <!--/* admin-lte 主题 */-->
+    <link rel="stylesheet" href="../../static/admin-lte/css/AdminLTE.min.css"
+          th:href="@{/admin-lte/css/AdminLTE.min.css}"/>
+    <!--/* admin-lte 皮肤 */-->
+    <link rel="stylesheet" href="../../static/admin-lte/css/skins/skin-blue-light.min.css"
+          th:href="@{/admin-lte/css/skins/skin-blue-light.min.css}"/>
+    <!--/* 浏览器兼容 */-->
+    <!--[if lt IE 9]>
+    <script src="../../static/html5shiv/html5.min.js"
+            th:src="@{/html5shiv/html5.min.js}"></script>
+    <script src="../../static/respond/respond.min.js"
+            th:src="@{/respond/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body class="sidebar-mini skin-blue-light  pace-done sidebar-collapse">
+<div class="wrapper">
+    <header class="main-header">
+        <a class="logo" href="#" th:href="@{/}">H</a>
+        <nav class="navbar navbar-static-top"></nav>
+    </header>
+    <aside class="main-sidebar"></aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>404 Error Page</h1>
+        </section>
+
+        <section class="content">
+            <div class="error-page">
+                <h2 class="headline text-yellow"> 404</h2>
+
+                <div class="error-content">
+                    <h3><i class="fa fa-warning text-yellow"></i> 哦!页面没有找到。</h3>
+
+                    <p>
+                        我们无法找到您正在寻找的页面。与此同时,你可能会<a href="#" th:href="@{/}">回首页</a>或尝试使用搜索表单。
+                    </p>
+
+                    <form class="search-form">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="搜索...">
+                            <div class="input-group-btn">
+                                <button type="submit" name="submit" class="btn btn-warning btn-flat">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- footer -->
+    <div th:replace="layouts/footer::footer">
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs"><b>Version</b> 1.0</div>
+            <strong>Copyright &copy; 2016-2017 <a href="http://blog.csdn.net/muraty">(布局)</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+</div>
+<!--/* jQuery */-->
+<script src="../../static/jQuery/jquery.min.js"
+        th:src="@{/jQuery/jquery.min.js}"></script>
+<!--/* Bootstrap */-->
+<script src="../../static/bootstrap/js/bootstrap.min.js"
+        th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<!--/* FastClick */-->
+<script src="../../static/fastclick/fastclick.js"
+        th:src="@{/fastclick/fastclick.js}"></script>
+<!--/* AdminLTE App */-->
+<script src="../../static/admin-lte/js/app.min.js"
+        th:src="@{/admin-lte/js/app.min.js}"></script>
+</body>
+</html>

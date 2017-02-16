@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="bootstrapTable1">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/validator/bootstrapValidator.min.css"/>
+    <link rel="stylesheet" href="../../../static/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <!-- header -->
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+
+        <section class="content-header">
+            <h1>bootstrapValidator
+                <small>Demo1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">bootstrapValidator</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <h3 class="box-title">必填项验证</h3>
+                        </div>
+                        <div class="box-body">
+                            <form id="val_demo1_form" class="form-horizontal">
+                                <div class="box-body">
+                                    <!-- 左 -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="val_num" class="col-sm-3 control-label">数字验证</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="val_num" name="val_num"
+                                                       placeholder="18"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="val_date" class="col-sm-3 control-label">时间验证</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                    <input type="text" class="form-control" id="val_date"
+                                                           name="val_date" placeholder="1900-01-01" readonly value=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="val_select" class="col-sm-3 control-label">验证下拉框</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="val_select" id="val_select">
+                                                    <option value="-1">--请选择--</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">组合验证</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                    <input type="text" class="form-control" id="val_group_date"
+                                                           name="val_group_date" placeholder="1900-01-01" readonly/>
+                                                    <span class="input-group-addon">
+                                                <input type="radio" title="" name="val_group_radio"> A
+                                                <input type="radio" title="" name="val_group_radio"> B
+                                                <input type="radio" title="" name="val_group_radio"> C
+                                            </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="val_hidden" class="col-sm-3 control-label">隐藏域</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="val_hidden"
+                                                       name="val_hidden" value="hiddenValue"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <button id="demo1_btn_submit" type="button"
+                                            class="btn btn-primary pull-right fa fa-save"> 保存
+                                    </button>
+                                </div>
+                                <div class="hidden">
+                                    <input type="hidden" name="hiddenContent" id="hiddenContent"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/layer/layer.js"></script>
+<script src="../../../static/validator/bootstrapValidator.min.js"></script>
+<script src="../../../static/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="../../../static/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+
+        var $form = $('#val_demo1_form').bootstrapValidator({
+            fields: {
+                val_num: {
+                    validators: {
+                        notEmpty: {
+                            message: '数字验证'
+                        },
+                        stringLength: {
+                            min: 2,
+                            max: 2,
+                            message: '数字取值 10-99'
+                        }
+                    }
+                },
+                val_date: {
+                    validators: {
+                        notEmpty: {
+                            message: '请选择日期'
+                        }
+                    }
+                },
+                val_select: {
+                    validators: {
+                        callback: {
+                            message: '请选择一列',
+                            callback: function (value, validator) {
+                                return !(value === '-1');
+                            }
+                        }
+                    }
+                },
+                val_group_date: {
+                    validators: {
+                        notEmpty: {
+                            message: '组合时间未选'
+                        }
+                    }
+                },
+                val_group_radio: {
+                    validators: {
+                        notEmpty: {
+                            message: '组合radio未选'
+                        }
+                    }
+                }
+            }
+        });
+
+        $("#demo1_btn_submit").click(function () {
+            var bootstrapValidator = $form.data('bootstrapValidator').validate();
+            if (bootstrapValidator.isValid()) {
+                layer.msg("验证通过-->数据提交");
+            } else {
+                layer.msg("验证不通过");
+            }
+
+        });
+
+        $('#val_date').datetimepicker({
+            language: 'zh-CN',
+            minView: 'month',
+            format: 'yyyy-mm-dd',
+            todayBtn: 1,
+            autoclose: 1
+        }).on('hide', function (e) {
+            $form.data('bootstrapValidator').updateStatus('val_date', 'NOT_VALIDATED', null).validateField('val_date');
+        });
+
+        $('#val_group_date').datetimepicker({
+            language: 'zh-CN',
+            minView: 'month',
+            format: 'yyyy-mm-dd',
+            todayBtn: 1,
+            autoclose: 1
+        }).on('hide', function (e) {
+            $form.data('bootstrapValidator').updateStatus('val_group_date', 'NOT_VALIDATED', null).validateField('val_group_date');
+        });
+
+    });
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

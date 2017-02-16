@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="upload1">中间内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/fileinput/css/fileinput.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>fileInput
+                <small>Demo1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+                <li class="active">fileInput</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-danger">
+                        <div class="box-header"><h3 class="box-title">文件的上传和回显</h3></div>
+                        <div class="box-body">
+                            <form id="demo1_form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="demo1" class="col-sm-1 control-label">文件</label>
+                                    <div class="col-sm-11">
+                                        <input id="demo1" name="file" type="file" multiple data-min-file-count="1"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="demo1_hidden" class="col-sm-1 control-label">隐藏域</label>
+                                    <div class="col-sm-11">
+                                        <input type="text" name="demo1_hidden" id="demo1_hidden" class="form-control"
+                                               value="hiddenValue"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box-footer">
+                            <button id="demo1_btn_submit" type="button" class="btn btn-primary pull-right fa fa-save">
+                                保存
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+        <input id="u1_url" type="text" title="文件上传路径"
+               value="../../jsondata/bootstrapTable/t1.json"
+               th:value="@{/table/data/t1}"/>
+        <input id="save_url" type="text" title="文件绑定表"
+               value="../../jsondata/bootstrapTable/t1.json"
+               th:value="@{/table/data/t1}"/>
+        <input id="init_img" type="text" title="初始化图片位置"
+               value="../../upload/2017/01/01/muraty.jpg"
+               th:value="@{/upload/2017/01/01/muraty.jpg}"/>
+        <input id="init_db_url" type="text" title="初始化图片位置"
+               value="../../upload/2017/01/01/muraty.jpg"
+               th:value="@{/upload/data/db1}"/>
+    </div>
+    <!--/*/ </th:block> /*/-->
+
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/layer/layer.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/fileinput/js/fileinput.min.js"></script>
+<script src="../../../static/fileinput/js/locales/zh.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+        // 文件上传路径
+        var u1_url = $('#u1_url').val();
+        var save_url = $('#save_url').val();
+        var init_img = $('#init_img').val();
+
+        console.info(init_img);
+
+        var $demo1 = $('#demo1').fileinput({
+            uploadUrl: u1_url,
+            enctype: 'multipart/form-data',
+            language: 'zh',
+            showUpload: false,
+            showRemove: false,
+            showClose: false,
+            showCaption: false,
+            overwriteInitial: false,
+            initialPreviewAsData:true,
+            maxFileSize: 1024 * 2,
+            uploadExtraData: function () {
+                return {
+                    extraId: $('#demo1_hidden').val()
+                }
+            },
+            allowedFileExtensions: ['jpg', 'png', 'gif', 'txt', 'xlsx', 'zip']
+        });
+
+        initFileInputAjax($demo1);
+
+        // 提交按钮
+        $("#demo1_btn_submit").click(function () {
+            $.ajax({
+                data: $('#demo1_form').serializeArray(),
+                url: save_url,
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    $('#demo1_hidden').val(data.extraId);   // 上传文件时, 需传入主键
+                    if (!isEmptyString($demo1.val()))
+                        $demo1.fileinput('upload');         // 上传
+                    layer.msg("保存成功");
+                },
+                error: function () {
+                    layer.msg("保存失败");
+                }
+            });
+        });
+    });
+
+    /**
+     *  回显数据初始化
+     */
+    function initFileInputAjax(control) {
+
+        var init_db_url = $('#init_db_url').val();
+
+        $.ajax({
+            url: init_db_url,
+            dataType: 'JSON',
+            data: {extraId: '1234'},
+            success: function (data) {
+                console.info(data);
+                control.fileinput(
+                    'refresh', data
+                )
+            }
+        });
+    }
+
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="导航页">内容</title>
+    <!--/*-->
+    <!-- remove 静态页面需要引入,动态页面不需要重复引入 -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="small-box bg-aqua">
+                        <div class="inner"><h3>门户</h3>
+                            <p>门户跳转</p></div>
+                        <div class="icon"><i class="fa fa-bars"></i></div>
+                        <a href="#" class="small-box-footer">进入...<i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="small-box bg-green">
+                        <div class="inner"><h3>统计</h3>
+                            <p>报表详细统计</p></div>
+                        <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                        <a href="#" class="small-box-footer">更多信息...<i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">柱状图</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                        class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <canvas id="myChart" style="height:180px"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">饼图</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                        class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                        class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <canvas id="myChart2" style="height:180px"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="info-box bg-yellow">
+                        <span class="info-box-icon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">库存</span>
+                            <span class="info-box-number">5,200</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <span class="progress-description">30天内增加50%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="info-box bg-red">
+                        <span class="info-box-icon"><i class="glyphicon glyphicon-tags"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">表扬</span>
+                            <span class="info-box-number">92,050</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 20%"></div>
+                            </div>
+                            <span class="progress-description">30天内增加20%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../static/jQuery/jquery.min.js"></script>
+<script src="../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../static/admin-lte/js/app.min.js"></script>
+<script src="../static/chartjs/Chart.min.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    var data = {
+        labels: ["红", "蓝", "黄", "绿", "紫", "橘"],
+        datasets: [{
+            label: ' 结果数 ',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    var options = {
+        scales: {
+            xAxes: [{
+                stacked: true
+            }],
+            yAxes: [{
+                stacked: true,
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
+
+    var myChart = new Chart($("#myChart"), {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+
+    var myChart2 = new Chart($('#myChart2'), {
+        type: 'doughnut',
+        data: data,
+        options: options
+    });
+</script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

@@ -1,0 +1,34 @@
+# 开发环境配置
+spring:
+  # 模版不缓存 开发热启动
+  thymeleaf:
+    cache: false
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring-boot
+    name: spring-boot
+    username: root
+    password: 123456
+  # 开启jpa模式
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  # jpa 配置
+  jpa:
+    show-sql: true
+    database: h2
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        strategy: org.hibernate.cfg.DefaultNamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+logging:
+  # 日志级别 开发模式
+  level:
+    com:
+      muraty: debug

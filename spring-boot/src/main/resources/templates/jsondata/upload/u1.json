@@ -1,0 +1,13 @@
+{
+  "initialPreview": [
+    "<img src='test/test/url' class='kv-preview-data file-preview-image'/>"
+  ],
+  "initialPreviewConfig": [
+    {
+      "key": "0001",
+      "caption": "test/test/url",
+      "size": 102400,
+      "url": "0001"
+    }
+  ]
+}

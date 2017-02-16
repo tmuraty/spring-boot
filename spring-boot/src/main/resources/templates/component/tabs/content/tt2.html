@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>中间内容</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../../static/bootstrapTable/bootstrap-table.min.css"/>
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Tabs<small>Tabs</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Tabs</a></li>
+                <li><a href="#">Tabs</a></li>
+                <li class="active">Tabs</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <h2 class="page-header">Custom Tabs</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Tab 2</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div th:fragment="tt2">
+                                    欧洲语言是同一个家庭的成员。他们的独立的存在神话。
+                                    科学、音乐、体育等,欧洲使用相同的词汇。语言只不同在他们的语法、发音和最常见的单词。
+                                    每个人都意识到为什么一个新需要共同的语言:
+                                    一个可以拒绝支付昂贵的翻译。
+                                    来实现这一目标,就需要有统一的语法、发音和更多常见的单词。
+                                    如果几种语言融合,由此产生的语言的语法简单的和普通的个人的语言。
+                                    <!--/* 隐藏域 用于传递 后台数据 */-->
+                                    <div class="hidden">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../../static/local/js/local.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<!-- 替换母页面中的js -->
+<script th:fragment="js">
+    $(function () {
+        console.info(2);
+    });
+
+</script>
+</body>
+</html>

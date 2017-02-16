@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title th:text="tabs1">中间内容</title>
+    <!--/*-->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../../static/admin-lte/css/skins/skin-blue-light.min.css"/>
+    <link rel="stylesheet" href="../../../static/bootstrapTable/bootstrap-table.min.css"/>
+    <!--*/-->
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+
+    <!--/* 插入内容到 layouts/layout.html 中 */-->
+    <!--/*/ <th:block layout:fragment="content"> /*/-->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                tabs
+                <small>1</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">tabs</a></li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
+                            <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
+                            <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
+                            <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <div th:replace="component/tabs/content/tt1::tt1">tab_1</div>
+                            </div>
+                            <div class="tab-pane" id="tab_2">
+                                <div th:replace="component/tabs/content/tt2::tt2">tab_2</div>
+                            </div>
+                            <div class="tab-pane" id="tab_3">
+                                <div th:replace="component/tabs/content/tt3::tt3">tab_3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--/* 隐藏域 用于传递 后台数据 */-->
+    <div class="hidden">
+
+    </div>
+    <!--/*/ </th:block> /*/-->
+    <footer class="main-footer">底部</footer>
+</div>
+<script src="../../../static/jQuery/jquery.min.js"></script>
+<script src="../../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/admin-lte/js/app.min.js"></script>
+<script src="../../../static/local/js/local.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../../static/bootstrapTable/bootstrap-table-mobile.min.js"></script>
+<!--/*/ <th:block layout:fragment="js"> /*/-->
+<script>
+    $(function () {
+        console.info("father");
+    });
+</script>
+<script th:replace="component/tabs/content/tt1::js"></script>
+<script th:replace="component/tabs/content/tt2::js"></script>
+<script th:replace="component/tabs/content/tt3::js"></script>
+<!--/*/ </th:block> /*/-->
+</body>
+</html>

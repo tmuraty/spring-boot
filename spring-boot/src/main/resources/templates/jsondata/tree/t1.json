@@ -1,0 +1,44 @@
+[
+  {
+    "id": "000",
+    "pId": "",
+    "name": "顶级节点",
+    "open": false,
+    "isParent": false
+  },
+  {
+    "id": "001",
+    "pId": "000",
+    "name": "一级节点1",
+    "open": false,
+    "isParent": false
+  },
+  {
+    "id": "002",
+    "pId": "000",
+    "name": "一级节点2",
+    "open": false,
+    "isParent": false
+  },
+  {
+    "id": "003",
+    "pId": "000",
+    "name": "一级节点3",
+    "open": false,
+    "isParent": false
+  },
+  {
+    "id": "011",
+    "pId": "001",
+    "name": "二级节点1",
+    "open": false,
+    "isParent": false
+  },
+  {
+    "id": "012",
+    "pId": "001",
+    "name": "二级节点2",
+    "open": false,
+    "isParent": false
+  }
+]

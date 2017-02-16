@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>底部</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <link href="../../static/local/img/logo.jpg" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../static/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../static/admin-lte/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="../../static/admin-lte/css/skins/_all-skins.min.css"/>
+</head>
+<body class="sidebar-mini skin-blue-light">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">头部</a>
+        <nav class="navbar navbar-static-top">头部</nav>
+    </header>
+    <aside class="main-sidebar">左边</aside>
+    <div class="content-wrapper">主要内容</div>
+
+    <footer class="main-footer" th:fragment="footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Session</b> <span th:text="${#session.getAttribute('version')}">1.0</span>
+        </div>
+        <strong>Copyright &copy; 2016-2017 <a href="http://blog.csdn.net/muraty">muraty</a>.</strong>
+        All rights reserved.
+    </footer>
+
+</div>
+<script src="../../static/jQuery/jquery.min.js"></script>
+<script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/jQueryUI/jquery-ui.min.js"></script>
+<script src="../../static/admin-lte/js/app.min.js"></script>
+</body>
+</html>
