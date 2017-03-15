@@ -1,8 +1,5 @@
 package com.muraty.component.table.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.muraty.base.ILog;
 import com.muraty.base.ui.BootstrapTable;
 import com.muraty.component.table.entity.Data;
@@ -11,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author muraty
@@ -36,7 +35,11 @@ public class TableController extends ILog{
 
         log.debug("list is {}",list);
 
-        return new BootstrapTable(10L,list);
+        BootstrapTable table = new BootstrapTable();
+        table.setTotal(10L);
+        table.setRows(list);
+
+        return table;
     }
 
 }
