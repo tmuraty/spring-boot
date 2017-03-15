@@ -51,7 +51,7 @@ spring-boot + admin-lte 脚手架
 
 ## 截图
 *布局*
-![Screenshot admin-LTE](/images/navigation.png)
+![Screenshot admin-LTE](/images/navigation.png) 
 
 *表格分页和编辑(bootstrap-table+x-editable)*
 ![Screenshot bootstrap-table](/images/bootstrap-table.png)
